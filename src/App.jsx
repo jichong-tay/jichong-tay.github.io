@@ -16,6 +16,7 @@ const emptyResume = {
   phone: "",
   linkedin: "",
   github: "",
+  website: "",
   summary: [],
   "professional experiences": [],
   "skills and knowledge": {},
@@ -84,9 +85,10 @@ const normalizeResume = (data = {}) => {
     };
   });
 
-  const links = [];
+  // Web view: LinkedIn and GitHub
+  const webLinks = [];
   if (data.linkedin) {
-    links.push({
+    webLinks.push({
       id: "linkedin",
       label: "LinkedIn",
       url: data.linkedin.startsWith("http")
@@ -95,12 +97,33 @@ const normalizeResume = (data = {}) => {
     });
   }
   if (data.github) {
-    links.push({
+    webLinks.push({
       id: "github",
       label: "GitHub",
       url: data.github.startsWith("http")
         ? data.github
         : `https://${data.github}`,
+    });
+  }
+
+  // PDF view: LinkedIn and Website
+  const pdfLinks = [];
+  if (data.linkedin) {
+    pdfLinks.push({
+      id: "linkedin",
+      label: "LinkedIn",
+      url: data.linkedin.startsWith("http")
+        ? data.linkedin
+        : `https://${data.linkedin}`,
+    });
+  }
+  if (data.website) {
+    pdfLinks.push({
+      id: "website",
+      label: "Website",
+      url: data.website.startsWith("http")
+        ? data.website
+        : `https://${data.website}`,
     });
   }
 
@@ -144,9 +167,11 @@ const normalizeResume = (data = {}) => {
     email: data.email || "",
     phone: data.phone || "",
     linkedin: data.linkedin || "",
+    website: data.website || "",
     github: data.github || "",
     summary: summaryText,
-    links,
+    webLinks,
+    pdfLinks,
     skillCategories,
     certifications: certifications.filter(Boolean),
     experience: mapExperience,
@@ -231,7 +256,7 @@ const WebResume = ({ resume }) => (
           <h1>{resume.name || "Your name"}</h1>
           <p className="title-text">{resume.title || "Your title"}</p>
           <ContactLine resume={resume} />
-          <LinksLine links={resume.links} />
+          <LinksLine links={resume.webLinks} />
           <button className="download-btn" onClick={() => window.print()}>
             <svg
               width="16"
@@ -403,12 +428,12 @@ const PdfResume = ({ resume }) => (
         <h1>{resume.name || "Your name"}</h1>
         <p className="pdf-title">{resume.title || "Your title"}</p>
         <ContactLinePdf resume={resume} />
-        {resume.links && resume.links.length > 0 && (
+        {resume.pdfLinks && resume.pdfLinks.length > 0 && (
           <p className="links-pdf">
-            {resume.links.map((link, idx) => (
+            {resume.pdfLinks.map((link, idx) => (
               <span key={link.id}>
                 {link.url}
-                {idx < resume.links.length - 1 ? " | " : ""}
+                {idx < resume.pdfLinks.length - 1 ? " | " : ""}
               </span>
             ))}
           </p>

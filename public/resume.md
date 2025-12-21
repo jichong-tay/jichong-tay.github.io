@@ -6,6 +6,7 @@ email: tay_ji_chong@hotmail.com
 phone: "+65 9781 7505"
 linkedin: linkedin.com/in/jichong-tay
 github: github.com/jichong-tay
+website: https://jichong-tay.github.io
 summary:
   - Adaptable data professional with experience across data science, analytics engineering, and workflow automation, currently supporting the Data Science & Advanced Analytics team at Bank of Singapore. Skilled in Python, Pandas, DuckDB, Streamlit, Prefect, and automated testing with pytest, I design data workflows, build proof-of-concept analytical applications, and streamline operational processes through automation. With a strong foundation in software engineering gained from Foodpanda’s PowerUp! SG Traineeship Program under IMDA’s TeSA initiative, I bring a unique blend of technical capability, business understanding, and continuous-learning mindset. I am dedicated to delivering data-driven insights, enhancing digitalization, and applying AI-enabled solutions to improve decision-making and operational efficiency.
 
