@@ -68,7 +68,7 @@ professional experiences:
       - Implemented data privacy measures, ensuring full compliance with PDPA regulations, positioning Best Electricity Supply as a trusted industry player in data protection, and reducing data breach risks.
   - role: Billing and Settlement Executive and Customer Operations Officer
     company: Geneco Singapore
-    start: 05/2013
+    start: 05/2012
     end: 10/2015
     details:
       - Seraya Energy's Retail Energy Brand, Subsidiary of YTL PowerSeraya Pte. Limited
